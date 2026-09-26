@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: messaging-service
+  labels:
+    app: messaging-service
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: messaging-service
+  template:
+    metadata:
+      labels:
+        app: messaging-service
+    spec:
+      containers:
+        - name: messaging-service
+          image: vivek8539/messaging-service:0.0.7
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8061
+          envFrom:
+            - configMapRef:
+                name: messaging-service-jvm-args

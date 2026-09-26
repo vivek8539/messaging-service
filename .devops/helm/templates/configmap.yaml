@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: messaging-service-jvm-args
+data:
+  JAVA_TOOL_OPTIONS: >-
+    -Xms512m
+    -Xmx1024m
+    -XX:+UseG1GC
+    -DSPRING_PROFILE=prod
+    -XX:+ExitOnOutOfMemoryError
