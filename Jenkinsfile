@@ -1,8 +1,5 @@
-pipeline {
-    agent {
-        kubernetes {
-            cloud 'kubernetes'
-            yaml '''
+@Library('jenkins-shared-library@master') _
+env['BUILDPOD_YAML'] = '''
 apiVersion: v1
 kind: Pod
 metadata:
@@ -17,15 +14,4 @@ spec:
     args:
     - 99d
 '''
-        }
-    }
-    stages {
-        stage('Build') {
-            steps {
-                container('maven') {
-                    sh 'mvn --version'
-                }
-            }
-        }
-    }
-}
+runPipeline()
