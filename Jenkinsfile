@@ -1,4 +1,4 @@
-@Library('jenkins-shared-library@master') _
+@Library('jenkins-shared-library@local') _
 env['BUILDPOD_YAML'] = '''
 apiVersion: v1
 kind: Pod
