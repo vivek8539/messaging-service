@@ -14,12 +14,10 @@ spec:
     args:
     - 99d
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:latest
+    image: gcr.io/kaniko-project/executor:debug
+    imagePullPolicy: Always
     command:
-      - /busybox/sh
-    args:
-      - -c
-      - cat
+    - /busybox/cat
     tty: true
 '''
 env['DOCKER_REGISTRY'] = 'https://index.docker.io/v1/'
