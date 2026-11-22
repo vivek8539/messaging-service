@@ -15,6 +15,9 @@ spec:
     - 99d
   - name: kaniko
     image: gcr.io/kaniko-project/executor:latest
+    command:
+      - /busybox/cat
+    tty: true
 '''
 env['DOCKER_REGISTRY'] = 'https://index.docker.io/v1/'
 env['DOCKER_USERNAME'] = 'vivek8539'
