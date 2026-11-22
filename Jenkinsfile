@@ -14,4 +14,6 @@ spec:
     args:
     - 99d
 '''
+env['DOCKER_REGISTRY'] = 'https://index.docker.io/v1/'
+env['DOCKER_USERNAME'] = 'vivek8539'
 runPipeline()
