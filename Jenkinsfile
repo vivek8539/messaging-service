@@ -13,6 +13,8 @@ spec:
     - sleep
     args:
     - 99d
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:latest
 '''
 env['DOCKER_REGISTRY'] = 'https://index.docker.io/v1/'
 env['DOCKER_USERNAME'] = 'vivek8539'
