@@ -10,6 +10,9 @@ spec:
   - name: docker-config
     secret:
       secretName: dockerhub-secret
+      items:
+        - key: .dockerconfigjson
+          path: config.json
   containers:
   - name: maven
     image: maven:3.9.9-eclipse-temurin-17
