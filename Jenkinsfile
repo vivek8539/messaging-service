@@ -6,6 +6,10 @@ metadata:
   labels:
     job: k8s-pipeline-build
 spec:
+  volumes:
+  - name: docker-config
+    secret:
+      secretName: dockerhub-secret
   containers:
   - name: maven
     image: maven:3.9.9-eclipse-temurin-17
@@ -19,6 +23,9 @@ spec:
     command:
     - /busybox/cat
     tty: true
+    volumeMounts:
+    - name: docker-config
+    mountPath: /kaniko/.docker
 '''
 env['DOCKER_REGISTRY'] = 'https://index.docker.io/v1/'
 env['DOCKER_USERNAME'] = 'vivek8539'
