@@ -24,8 +24,8 @@ spec:
     - /busybox/cat
     tty: true
     volumeMounts:
-    - name: docker-config
-    mountPath: /kaniko/.docker
+      - name: docker-config
+      mountPath: /kaniko/.docker
 '''
 env['DOCKER_REGISTRY'] = 'https://index.docker.io/v1/'
 env['DOCKER_USERNAME'] = 'vivek8539'
