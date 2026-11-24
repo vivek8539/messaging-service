@@ -30,7 +30,7 @@ spec:
       - name: docker-config
         mountPath: /kaniko/.docker
   - name: deploy
-    image: dtzar/helm-kubectl
+    image: alpine/helm:3.17.0
     command:
     - sleep
     args:
