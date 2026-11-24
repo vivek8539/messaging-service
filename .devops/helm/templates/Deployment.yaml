@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: messaging-service
-          image: vivek8539/messaging-service:0.0.7
+          image: {{ .Values.image.tag }}
           imagePullPolicy: Always
           ports:
             - containerPort: 8061
