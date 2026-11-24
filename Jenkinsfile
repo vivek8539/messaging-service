@@ -29,6 +29,12 @@ spec:
     volumeMounts:
       - name: docker-config
         mountPath: /kaniko/.docker
+  - name: deploy
+    image: dtzar/helm-kubectl
+    command:
+    - sleep
+    args:
+    - 99d
 '''
 env['DOCKER_REGISTRY'] = 'https://index.docker.io/v1/'
 env['DOCKER_USERNAME'] = 'vivek8539'
