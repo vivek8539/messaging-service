@@ -13,6 +13,9 @@ spec:
       items:
         - key: .dockerconfigjson
           path: config.json
+  - name: maven-cache-storage
+    persistentVolumeClaim:
+      claimName: cache-pvc
   containers:
   - name: maven
     image: maven:3.9.9-eclipse-temurin-17
@@ -20,6 +23,9 @@ spec:
     - sleep
     args:
     - 99d
+    volumeMounts:
+      - name: maven-cache-storage
+        mountPath: /root/.m2
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
     imagePullPolicy: Always
